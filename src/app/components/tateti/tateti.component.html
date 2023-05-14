@@ -1,0 +1,23 @@
+<section class="container-tateti">
+    <section class="tablero" [ngClass]="!start ? 'tableroDesactivado' : ''">
+        <div class="casilla" id="0" (click)="llenarCasilla($event)"></div>
+        <div class="casilla" id="1" (click)="llenarCasilla($event)"></div>
+        <div class="casilla" id="2" (click)="llenarCasilla($event)"></div>
+        <div class="casilla" id="3" (click)="llenarCasilla($event)"></div>
+        <div class="casilla" id="4" (click)="llenarCasilla($event)"></div>
+        <div class="casilla" id="5" (click)="llenarCasilla($event)"></div>
+        <div class="casilla" id="6" (click)="llenarCasilla($event)"></div>
+        <div class="casilla" id="7" (click)="llenarCasilla($event)"></div>
+        <div class="casilla" id="8" (click)="llenarCasilla($event)"></div>
+        <section class="raya invisible">
+            <div id="rayas" class="rayas"></div>
+        </section>
+    </section>
+
+    <section class="mensaje" *ngIf="win || empate">
+        <h3>{{ mensaje }}</h3>
+        <button class="btn btn-success" (click)="reiniciarJuego()"><i class="bi bi-arrow-clockwise"></i></button>
+    </section>
+
+    
+</section>

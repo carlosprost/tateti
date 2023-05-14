@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tateti';
+  subtitle: string = 'El clásico juego para la familia'
+
+  inicio: boolean = true;
+  juego: boolean = false;
+
+  cambiarEstadoDeInicio(event: boolean){
+    this.inicio = event;
+  }
+  cambiarEstadoDeJuego(event: boolean){
+    this.juego = event;
+  }
 }
