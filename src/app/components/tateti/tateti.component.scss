@@ -1,6 +1,6 @@
 .container-tateti {
-  width: 70%;
-  height: 100%;
+  width: 95%;
+  height: 80%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -9,18 +9,25 @@
 
   .tablero {
     position: relative;
-    width: 600px;
-    height: 600px;
+    width: 100%;
+    height: 75%;
+    max-width: 600px;
+    max-height: 600px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
     .casilla {
-      width: 200px;
-      height: 200px;
+      width: 33.33%;
+      height: 33.33%;
+      max-width: 200px;
+      max-height: 200px;
       border: 1px solid black;
       background-color: rgb(230, 207, 133);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .X {
@@ -40,108 +47,106 @@
       box-shadow: inset 0px 0px 10px black;
     }
 
-    .raya{
-        width: 100%;
+    .raya {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+
+      border: 1px solid green;
+
+      .rayas {
+        width: 10px;
         height: 100%;
+        background-color: rgb(245, 181, 5);
         position: absolute;
-        top: 50%;
+        top: 0%;
+      }
+
+      .col1 {
+        left: 17%;
+        transform: translateX(-50%);
+        animation: animacionColYRow 1s;
+      }
+
+      .col2 {
         left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1;
+        transform: translateX(-50%);
+        animation: animacionColYRow 1s;
+      }
 
-        border: 1px solid green;
+      .col3 {
+        left: 83%;
+        transform: translateX(-50%);
+        animation: animacionColYRow 1s;
+      }
 
-        .rayas{
-            width: 10px;
-            height: 100%;
-            background-color: rgb(245, 181, 5);
-            position: absolute;
-            top: 0%;
+      .row1 {
+        width: 100%;
+        height: 10px;
+        top: 17%;
+        animation: animacionColYRow 1s;
+      }
+
+      .row2 {
+        width: 100%;
+        height: 10px;
+        top: 50%;
+        animation: animacionColYRow 1s;
+      }
+
+      .row3 {
+        width: 100%;
+        height: 10px;
+        top: 83%;
+        animation: animacionColYRow 1s;
+      }
+
+      .diag1 {
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        animation: animacionDiagonal1 1s;
+      }
+
+      .diag2 {
+        left: 50%;
+        transform: translateX(-50%) rotate(-45deg);
+        animation: animacionDiagonal2 1s;
+      }
+
+      @keyframes animacionColYRow {
+        0% {
+          transform: scale(0);
         }
-    
-        .col1{
-            left: 17%;
-            transform: translateX(-50%);
-            animation: animacionColYRow 1s;
+        100% {
+          transform: scale(1);
         }
+      }
 
-        .col2{
-            left: 50%;
-            transform: translateX(-50%);
-            animation: animacionColYRow 1s;
+      @keyframes animacionDiagonal1 {
+        0% {
+          transform: scale(0) rotate(45deg);
         }
-
-        .col3{
-            left: 83%;
-            transform: translateX(-50%);
-            animation: animacionColYRow 1s;
+        100% {
+          transform: scale(1) rotate(45deg);
         }
+      }
 
-        .row1{
-            top: 17%;
-            left: 0%;
-            transform: translateY(-50%);
-            animation: animacionColYRow 1s;
+      @keyframes animacionDiagonal2 {
+        0% {
+          transform: scale(0) rotate(-45deg);
         }
-
-
-        .row2{
-            top: 50%;
-            left: 0%;
-            transform: translateY(-50%);
-            animation: animacionColYRow 1s;
+        100% {
+          transform: scale(1) rotate(-45deg);
         }
-
-        .row3{
-            top: 83%;
-            left: 0%;
-            transform: translateY(-50%);
-            animation: animacionColYRow 1s;
-        }
-
-        .diag1{
-            left: 50%;
-            transform: translateX(-50%) rotate(45deg);
-            animation: animacionDiagonal1 1s;
-        }
-
-        .diag2{
-            left: 50%;
-            transform: translateX(-50%) rotate(-45deg);
-            animation: animacionDiagonal2 1s;
-        }
-
-        @keyframes animacionColYRow{
-            0%{
-                transform: scale(0);
-            }
-            100%{
-                transform: scale(1);
-            }
-        }
-
-        @keyframes animacionDiagonal1{
-            0%{
-                transform: scale(0) rotate(45deg);
-            }
-            100%{
-                transform: scale(1) rotate(45deg);
-            }
-        }
-
-        @keyframes animacionDiagonal2{
-            0%{
-                transform: scale(0) rotate(-45deg);
-            }
-            100%{
-                transform: scale(1) rotate(-45deg);
-            }
-        }
-
+      }
     }
 
-    .invisible{
-        display: none;
+    .invisible {
+      display: none;
     }
   }
 
@@ -160,7 +165,7 @@
   align-items: center;
   z-index: 2;
 
-  h3{
+  h3 {
     font-size: 50px;
     color: rgb(245, 181, 5);
     text-align: center;
@@ -180,4 +185,59 @@
   }
 }
 
+.jugadores {
+  position: absolute;
+  width: 50%;
+  height: 10%;
+  max-width: 200px;
+  max-height: 110px;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
 
+  .jugador {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h3 {
+      font-size: 4rem;
+      font-weight: bold;
+      color: rgb(245, 181, 5);
+    }
+  }
+
+  .activePlayer {
+    h3 {
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
+          0 0 40px #e60073
+            /* , 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073 */;
+      }
+      to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6,
+          0 0 40px #ff4da6
+            /* ,
+          0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6 */;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .jugadores {
+    bottom: 12%;
+  }
+}
